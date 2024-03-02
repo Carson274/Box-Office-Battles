@@ -28,6 +28,31 @@ const movieSchema = new mongoose.Schema({
 // compile the model from the schema. This must be done after defining the schema
 const Movie = mongoose.model("Movie", movieSchema)
 
+const getOriginalMovie = async () => {
+    // get a random movie from the database
+    const movie = await Movie.aggregate([{ $sample: { size: 1 } }]);
+    return movie;
+}
+
+const getNewMovie = async (usedMovies) => {
+    let movieSet = new Set(usedMovies);
+
+    while(true) {
+        // get a random movie from the database
+        const movie = await Movie.aggregate([{ $sample: { size: 1 } }]);
+
+        // if the movie isn't in the set, return it
+        if (!movieSet.has(movie[0].id)) {
+            return movie;
+        }
+
+        // if the set is full, clear it
+        if (movieSet.size === 30) {
+            movieSet.clear();
+        }
+    }
+}
+
 const createMovie = async (id, budget, popularity, release_date, revenue, title, poster_url) => {
     const movie = new Movie({ id: id, budget: budget, popularity: popularity, release_date: release_date, revenue: revenue, title: title, poster_url: poster_url});
     return movie.save();
@@ -53,4 +78,4 @@ const deleteMovie = async (filter) => {
     return result.deletedCount;
 }
 
-export { createMovie, findMovieById, findMovies, updateMovie, deleteMovie };
+export { createMovie, findMovieById, findMovies, updateMovie, deleteMovie, getOriginalMovie, getNewMovie };
