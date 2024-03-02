@@ -22,7 +22,7 @@ app.get('/getOriginalMovie', async (req, res) => {
   const movie = await movies.getOriginalMovie()
     .then(movie => {
         // add the movie to the list of used movies
-        res.status(201).json(movie);
+        res.status(201).json(movie[0]);
     })
     .catch(error => {
         res.status(400).send({ Error: "Request failed" });
@@ -38,7 +38,7 @@ app.post('/getNewMovie', async (req, res) => {
   // get a random movie
   const movie = await movies.getNewMovie(usedMovies)
     .then(movie => {
-        res.status(201).json(movie);
+        res.status(201).json(movie[0]);
     })
     .catch(error => {
         res.status(400).send({ Error: "Request failed" });
