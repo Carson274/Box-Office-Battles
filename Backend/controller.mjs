@@ -1,6 +1,9 @@
 import 'dotenv/config';
 import * as movies from './model.mjs';
 import express from 'express';
+import cors from 'cors';
+
+app.use(cors());
 
 const PORT = process.env.PORT;
 
