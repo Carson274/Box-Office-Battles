@@ -1,5 +1,16 @@
-import './styles/main.css'
-import './styles/global.css'
+import { Link } from 'react-router-dom'
+import '../styles/App.css'
+import '../styles/global.css'
+
+function App() {
+  
+  return (
+    <div id='app-container'>
+      <h1 className="megapunch-font red-gradient">Box Office Battles</h1>
+      <Link to="/play" className="normal-font play-button">Play Now</Link>
+    </div>
+  )
+}
 
 // TODO: Below code is for future mouse glow effect on the logo
 
@@ -29,15 +40,5 @@ import './styles/global.css'
 //     }, []);
 //     return mousePosition;
 //   };
-
-const App = () => {
-
-  return (
-    <>
-      <h1 className="megapunch-font red-gradient">Box Office Battles</h1>
-      <button className="normal-font play-button">Play Now</button>
-    </>
-  )
-}
 
 export default App

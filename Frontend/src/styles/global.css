@@ -1,10 +1,20 @@
 @font-face {
     font-family: 'MegaPunch';
-    src: url(../../public/Megapunch-Italic.ttf);
+    src: url(/Megapunch-Italic.ttf);
 }
 
-html {
-    margin: 50px;
+h1, h2, h3, h4, h5, h6, p {
+    padding: 0px;
+    margin: 0px;
+    color: white;
+}
+
+body, html {
+    padding: 0px;
+    margin: 0px;
+}
+
+#root {
     height: 100vh;
     width: 100vw;
     background-color: #121212;
@@ -18,16 +28,6 @@ html {
     margin: 0px;
 }
 
-.normal-font {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.normal-font:hover {
-    
-}
-
 .red-gradient {
     font-size: 72px;
     background: -webkit-linear-gradient(#de2222, #850505);
@@ -35,7 +35,7 @@ html {
     -webkit-text-fill-color: transparent;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 940px) {
     .megapunch-font {
         font-family: 'MegaPunch';
         font-size: 100px;
