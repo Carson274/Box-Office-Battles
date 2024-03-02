@@ -1,0 +1,28 @@
+.app-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This will make the div take up the full height of the viewport */
+  }
+  
+  .centered-content {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .shifted-up {
+    margin-top: -50px; /* Adjust this value to shift the image up as much as you want */
+  }
+
+  .image-container {
+    position: relative;
+    height: 0;
+  }
+  
+  .image-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

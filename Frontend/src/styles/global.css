@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'MegaPunch';
-    src: url(../../public/Megapunch-Italic.ttf);
+    src: url(/Fonts/megapunch/Megapunch-Italic.ttf);
 }
 
 html {
@@ -12,8 +12,8 @@ html {
 
 .megapunch-font {
     font-family: 'MegaPunch';
-    font-size: 100px;
-    font-weight: 100;
+    font-size: 154px;
+    font-weight: 10;
     width: 100%;
     margin: 0px;
 }
@@ -42,4 +42,8 @@ html {
         font-weight: 100;
         width: 65%;
     }
+}
+
+.blue-font {
+    color: blue;
 }
