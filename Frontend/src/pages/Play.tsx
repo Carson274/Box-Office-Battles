@@ -7,9 +7,10 @@ interface Movie {
     title: string;
     revenue: number;
     rating: number;
-    releaseDate: string; //YYYY-MM-DD
+    release_date: string; //YYYY-MM-DD
     popularity: number;
     budget: number;
+    poster_url: string;
 }
 
 const Play = () => {
@@ -35,6 +36,7 @@ const Play = () => {
             })
             .then(response => response.json());
 
+            console.log(firstMovie, secondMovie)
         setFirstMovie(firstMovie);
         setSecondMovie(secondMovie);
       })();
@@ -47,7 +49,11 @@ const Play = () => {
         <h2 id='vs'>V.S.</h2>
         <h2 className="movie-title">{secondMovie?.title}</h2>
       </div>
-      <img src={ring} alt="ring" id="ring" />
+      <div id='ring-container'>
+        <img src={ring} alt="ring" id="ring" />
+        <img src={firstMovie?.poster_url} alt="movie1" id="movie1" />
+        <img src={secondMovie?.poster_url} alt="movie2" id="movie2" />
+      </div>
     </div>
   )
 }
