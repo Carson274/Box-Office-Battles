@@ -11,6 +11,11 @@ app.use(express.json());
 // // create a list of previously used movies
 // let usedMovies = [];
 
+// default route
+app.get('/', (req, res) => {
+    res.send('API is running!');
+});
+
 // retrieve the original movie
 app.get('/getOriginalMovie', async (req, res) => {
   // get a random movie
