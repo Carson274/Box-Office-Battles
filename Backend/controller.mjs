@@ -3,16 +3,13 @@ import * as movies from './model.mjs';
 import express from 'express';
 import cors from 'cors';
 
-app.use(cors());
-
 const PORT = process.env.PORT;
 
 const app = express();
 
 app.use(express.json());
 
-// // create a list of previously used movies
-// let usedMovies = [];
+app.use(cors());
 
 // default route
 app.get('/', (req, res) => {
@@ -24,11 +21,8 @@ app.get('/getOriginalMovie', async (req, res) => {
   // get a random movie
   const movie = await movies.getOriginalMovie()
     .then(movie => {
-        res.status(201).json(movie);
         // add the movie to the list of used movies
-        usedMovies.push(movie[0].id);
-
-        console.log(usedMovies);
+        res.status(201).json(movie);
     })
     .catch(error => {
         res.status(400).send({ Error: "Request failed" });
@@ -45,10 +39,6 @@ app.post('/getNewMovie', async (req, res) => {
   const movie = await movies.getNewMovie(usedMovies)
     .then(movie => {
         res.status(201).json(movie);
-
-        // add the movie to the list of used movies
-        usedMovies.push(movie[0].id);
-        console.log(usedMovies);
     })
     .catch(error => {
         res.status(400).send({ Error: "Request failed" });
