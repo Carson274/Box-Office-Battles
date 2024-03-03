@@ -8,24 +8,23 @@ const App = () => {
   const navigate = useNavigate();
   const handleButtonClick = () => {
     const title = document.querySelector('#title') as HTMLHeadingElement ;
-    title.style.transform = 'translateX(-1000px)'
+    title.style.transform = 'translateX(-3000px)'
 
     const leaderboard = document.querySelector('.leaderboard-wrapper') as HTMLDivElement;
-    leaderboard.style.transform = 'translateX(1000px)'
+    leaderboard.style.transform = 'translateX(3000px)'
 
     const playButton = document.querySelector('.play-button-wrapper') as HTMLDivElement;
-    playButton.style.transform = 'translateX(-1000px)'
+    playButton.style.transform = 'translateX(-3000px)'
 
     setTimeout(() => {
       console.log('Redirecting to /play');
       navigate('/play');
-    }, 1500);
+    }, 1000);
   };
 
   return (
     <>
-      <h1 id="title" className="megapunch-font red-gradient">BOX OFFICE <br /> <span className="blue-font">BATTLES</span></h1>  
-      <div className="play-button-wrapper" onClick={handleButtonClick}>
+          <h1 id="title" className="megapunch-font red-gradient">BOX OFFICE<br /> <span className="blue-font">BATTLES</span></h1>      <div className="play-button-wrapper" onClick={handleButtonClick}>
           <button onClick={handleButtonClick} className="play-button large-font italic-text">ENTER THE RING</button>        
       </div>
       <div className="leaderboard-wrapper">
@@ -53,8 +52,6 @@ const App = () => {
 }
 
 export default App;
-
-
 
 // TODO: Below code is for future mouse glow effect on the logo
 
