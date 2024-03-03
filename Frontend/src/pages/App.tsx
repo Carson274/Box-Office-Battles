@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <>
-          <h1 id="title" className="megapunch-font red-gradient">BOX OFFICE<br /> <span className="blue-font">BATTLES</span></h1>      <div className="play-button-wrapper" onClick={handleButtonClick}>
+          <h1 id="title" className="megapunch-font red-gradient">BOX OFFICE<br /> <span>BATTLES</span></h1>      <div className="play-button-wrapper" onClick={handleButtonClick}>
           <button onClick={handleButtonClick} className="play-button large-font italic-text">ENTER THE RING</button>        
       </div>
       <div className="leaderboard-wrapper">

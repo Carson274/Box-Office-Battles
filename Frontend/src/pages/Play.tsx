@@ -5,6 +5,7 @@ import MovieComponent from '../components/MovieComponent'
 import Movie from '../types/MovieType'
 import GameFinishedModal from '../components/GameFinishedModal'
 
+
 // move fetch to get new movie into function
 async function getNewMovie(usedMovies: Movie[]) {
   return fetch('http://localhost:3000/getNewMovie/', {
@@ -90,18 +91,14 @@ const Play = () => {
     <>
       <div id='play-container'>
         <div className='movie-title-container'>
-            <div className='left-title-container'>
-            <h2 className="movie-title">{firstMovie?.title}</h2>
-            </div>
+            <h2 className="movie-title-1">{firstMovie?.title}</h2>
             <div className='versus-container'>
             <h2 id='vs'>VS</h2>
             </div>
-            <div className='right-title-container'>
-            <h2 className="movie-title">{secondMovie?.title}</h2>
-            </div>
+            <h2 className="movie-title-2">{secondMovie?.title}</h2>
         </div>
         <div className='description-container'>
-            <h3 id="description">Choose the movie with the highest earnings</h3>
+            <h3 id="description">Select the movie with the highest earnings</h3>
         </div>
         <div id='ring-container'>
             <img src={ring} alt="ring" id="ring" />
@@ -113,8 +110,7 @@ const Play = () => {
             )}
         </div>
         <div id='score-container'>
-            <h3 id='score'>Score: {score}</h3>
-        </div>
+        <h3 id='score'>Streak: {score} 🔥</h3> </div>
       </div>
       {gameLost ? <GameFinishedModal score={score} /> : null}
     </>

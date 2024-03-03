@@ -85,7 +85,7 @@ const MovieComponent = ({ winner, movieType, movie, handleMovieClick }: MovieCom
     return (
       <>
         <img className='right-movie movie-poster' src={movie.poster_url} alt={movie.title} onClick={handleMovieClick} />
-        <img className='right-glove glove' src='/Images/boxing-glove-right.svg' alt='Second Movie' />
+        <img className='right-glove glove' src='/Images/Vectorbg.svg' alt='Second Movie' />
       </>
     );
   }

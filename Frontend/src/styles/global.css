@@ -38,7 +38,7 @@ body, html {
 
 .red-gradient {
     font-size: 72px;
-    background: -webkit-linear-gradient(#de2222, #850505);
+    background: -webkit-linear-gradient(#ff0000, blue);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
