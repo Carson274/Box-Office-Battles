@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 250px;
+    width: 200px;
     height: 40px;
     border-radius: 10px;
     border: none;
@@ -13,10 +13,9 @@
     font-size: 16px;
     font-weight: 600;
     margin-top: 80px;
-    margin-left: 75px;
-    padding:10px;
+    padding: 20px;
 }
-
+/* 
 #app-container {
     display: flex;
     flex-direction: column;
@@ -27,11 +26,10 @@
     padding-right: 50px;
     padding-top: 30px;
     padding-bottom: 30px;
-}
+} */
 
 #title {
-    transition-duration: 4s;
-    margin-left: 125px;
+    margin-top: 10vh;
     scale: 1.2;
 }
 
@@ -43,4 +41,102 @@
     transition-duration: 4s;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 100vh;
+    width: 100vw;
+    color: white;
+    overflow: hidden;
+}
 
+.text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    color: white;
+    text-align: center;
+}
+
+.right-right-right {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 250px;
+    animation: up-and-down 3s 0.5s infinite;
+}
+
+.left-left-left {
+    bottom: 10px;
+    left: 20px;
+    position: absolute;
+    width: 250px;
+    animation: up-and-down 3s 1s infinite;
+}
+
+.right-right {
+    bottom: 0;
+    right: 40px;
+    position: absolute;
+    width: 350px;
+    animation: up-and-down 3s 1s infinite;
+}
+
+.left-left {
+    bottom: 20px;
+    left: 40px;
+    position: absolute;
+    height: 700px;
+    animation: up-and-down 3s 0.5s infinite;
+}
+
+.right {
+    bottom: 0;
+    right: 130px;
+    position: absolute;
+    width: 350px;
+    animation: up-and-down 3s infinite;
+}
+
+.left {
+    bottom: 0;
+    left: 130px;
+    position: absolute;
+    width: 350px;
+    animation: up-and-down 3s infinite;
+}
+
+@keyframes up-and-down {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+
+}
+
+@keyframes slide-out-right {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes slide-out-left {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100vw);
+    }
+}
