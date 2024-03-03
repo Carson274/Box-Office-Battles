@@ -21,18 +21,34 @@
 
 #ring {
     width: max-content;
-    height: max-content;
+    height: 90%;
 }
 
 #movie1 {
     position: absolute;
-    width: 10%;
-    height: 25%;
+    width: 140px;
+    height: auto;
     top: 22%;
     left: 35%;
 }
 
 #movie2 {
+    position: absolute;
+    width: 140px;
+    height: auto;
+    top: 28%;
+    right: 35%;
+}
+
+#glove-left {
+    position: absolute;
+    width: 90px;
+    height: auto;
+    top: 22%;
+    left: 35%;
+}
+
+#glove-right {
     position: absolute;
     width: 10%;
     height: 25%;

@@ -1,0 +1,94 @@
+.left-movie {
+    position: absolute;
+    left: 200px;
+    width: 200px;
+    height: 300px;
+}
+
+.right-movie {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+}
+
+.left-glove {
+    position: absolute;
+    left: 200px;
+    width: 100px;
+    height: 300px;
+}
+
+.right-glove {
+    position: absolute;
+    width: 100px;
+    height: 300px;
+}
+
+.movie-poster {
+  animation: idle 1s linear infinite;
+}
+
+@keyframes idle {
+  0% {
+      transform: translate(10px, 0);
+  }
+  12.5% {
+      transform: translate(7.07px, -7.07px);
+  }
+  25% {
+      transform: translate(0, -10px);
+  }
+  37.5% {
+      transform: translate(-7.07px, -7.07px);
+  }
+  50% {
+      transform: translate(-10px, 0);
+  }
+  62.5% {
+      transform: translate(-7.07px, -7.07px);
+  }
+  75% {
+      transform: translate(0, -10px);
+  }
+  87.5% {
+      transform: translate(7.07px, -7.07px);
+  }
+  100% {
+      transform: translate(10px, 0);
+  }
+}
+
+.glove {
+  animation: idle 1s 0.05s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes idle {
+  0% {
+      transform: translate(10px, 0);
+  }
+  12.5% {
+      transform: translate(7.07px, -7.07px);
+  }
+  25% {
+      transform: translate(0, -10px);
+  }
+  37.5% {
+      transform: translate(-7.07px, -7.07px);
+  }
+  50% {
+      transform: translate(-10px, 0);
+  }
+  62.5% {
+      transform: translate(-7.07px, -7.07px);
+  }
+  75% {
+      transform: translate(0, -10px);
+  }
+  87.5% {
+      transform: translate(7.07px, -7.07px);
+  }
+  100% {
+      transform: translate(10px, 0);
+  }
+}
