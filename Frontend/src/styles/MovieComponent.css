@@ -34,6 +34,11 @@
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.7);
 }
 
+.glove {
+    animation: idle 1s 0.05s linear infinite;
+    pointer-events: none;
+  }
+
 @keyframes idle {
   0% {
       transform: translate(10px, 0);
@@ -62,11 +67,6 @@
   100% {
       transform: translate(10px, 0);
   }
-}
-
-.glove {
-  animation: idle 1s 0.05s linear infinite;
-  pointer-events: none;
 }
 
 @keyframes idle {
