@@ -28,6 +28,16 @@ async function getNewMovie(usedMovies: Movie[]) {
   .then(response => response.json());
 }
 
+const setMovie2InRing = () => {
+    const movie2 = document.getElementById('movie2') as HTMLImageElement;
+    movie2.style.right = '35%';
+}
+
+const setMovie1InRing = () => {
+    const movie1 = document.getElementById('movie1') as HTMLImageElement;
+    movie1.style.left = '35%';
+}
+
 const Play = () => {
   const [firstMovie, setFirstMovie] = useState<Movie | null>(null);
   const [secondMovie, setSecondMovie] = useState<Movie | null>(null);

@@ -1,8 +1,6 @@
 .movie-title {
     font-size: 1.5em;
-    font-weight: 700;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }
 
 #movie-title-container {
@@ -22,36 +20,19 @@
 }
 
 #ring {
-    width: max-content;
-    height: 90%;
-    height: 90%;
+    width: 72%;
+    height: 72%;
 }
 
 #movie1 {
     position: absolute;
-    width: 140px;
-    height: auto;
+    width: 10%;
+    height: 25%;
     top: 22%;
     left: 35%;
 }
 
 #movie2 {
-    position: absolute;
-    width: 140px;
-    height: auto;
-    top: 28%;
-    right: 35%;
-}
-
-#glove-left {
-    position: absolute;
-    width: 90px;
-    height: auto;
-    top: 22%;
-    left: 35%;
-}
-
-#glove-right {
     position: absolute;
     width: 10%;
     height: 25%;
@@ -59,35 +40,12 @@
     right: 35%;
 }
 
-#glove-left {
-    position: absolute;
-    width: 90px;
-    height: auto;
-    top: 22%;
-    left: 35%;
-}
-
-#glove-right {
-    position: absolute;
-    max-width: 10%;
-    max-height: 22%;
-    top: 30%;
-    right: 100%;
-    transition: 4s right;
-}
-
 #ring-container {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 100%;
-}
-
-#criterion {
-    padding-bottom: 50px;
-    font-size: 25px;
-    font-weight: 600;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%; 
+    margin-top: 100px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -100,17 +58,6 @@
         height: 100%;
     }
 
-    #movie-title-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        padding-top: 50px;
-        width: 100%;
-        height: 20%;
-    }
-
     #ring {
         display: none;
     }
@@ -120,7 +67,6 @@
         justify-content: space-evenly;
         width: 100%;
         height: 100%; 
-        padding-top: 50px;
     }
 
     #movie2 {
