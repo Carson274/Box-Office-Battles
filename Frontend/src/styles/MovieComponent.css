@@ -16,7 +16,7 @@
     top: 40vh;
     position: absolute;
     left: 38vw;
-    width: 120px;
+    width: 100px;
     height: 300px;
 }
 
@@ -24,7 +24,7 @@
     top: 45vh;
     position: absolute;
     left: 60vw;
-    width: 120px;
+    width: 100px;
     height: 300px;
 }
 
@@ -32,6 +32,11 @@
     animation: idle 1s linear infinite;
     cursor: pointer;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.7);
+}
+
+.movie-poster:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.7);
 }
 
 .glove {
@@ -122,7 +127,7 @@
         transform: translate(0, 0);
     }
     50% {
-        transform: translate(280px, 50px);
+        transform: translate(-280px, -50px);
     }
     100% {
         transform: translate(0, 0);
@@ -134,36 +139,63 @@
         transform: translate(0, 0);
     }
     50% {
-        transform: translate(-280px, -50px);
+        transform: translate(280px, 50px);
     }
     100% {
         transform: translate(0, 0);
     }
 }
 
-@keyframes fall-left {
+@keyframes moveAndPause {
     0% {
-        transform: translateY(0);
+      offset-distance: 0%;
+    }
+    60% {
+      offset-distance: 100%;
+      opacity: 1;
     }
     100% {
-        transform: translateY(100vh);
+      offset-distance: 100%;
+      opacity: 0;
     }
 }
 
-@keyframes fall-right {
+.fall-left {
+    transform: translate(-400px, 50px);
+    offset-path: path('M462 98.5267 C377.6 18.5267 309.167 0.193419 285.5 1.02675 C253.167 6.36008 186.3 31.1267 177.5 87.5267 C168.7 143.927 166.5 176.027 166.5 185.027 L136 138.027 C126.833 131.36 104.6 120.027 89 128.027 C73.4 136.027 58.1667 169.36 52.5 185.027 L42.5 167.027 L29 185.027 H0');
+    animation: moveAndPause 2.5s cubic-bezier(0.61, 1, 0.88, 1) forwards;
+    offset-rotate: 0deg;
+}
+
+.fall-right {
+    transform: translate(40px, 0);
+    offset-path: path('M1 98.5267 C85.4 18.5267 153.833 0.193419 177.5 1.02675C209.833 6.36008 276.7 31.1267 285.5 87.5267C294.3 143.927 296.5 176.027 296.5 185.027L327 138.027C336.167 131.36 358.4 120.027 374 128.027C389.6 136.027 404.833 169.36 410.5 185.027L420.5 167.027L434 185.027H463');
+    animation: moveAndPause 2.5s cubic-bezier(0.61, 1, 0.88, 1) forwards;
+    offset-rotate: 0deg;
+}
+
+@keyframes twirl-right {
     0% {
-        transform: translateY(0);
+        transform: translate(0, 0) rotate(0deg);
     }
     100% {
-        transform: translateY(100vh);
+        transform: translate(100vw, 50px) rotate(1000deg);
     }
 }
 
-@keyframes slideOut {
+@keyframes twirl-left {
     0% {
-        transform: translateX(0);
+        transform: translate(0, 0) rotate(0deg);
     }
     100% {
-        transform: translateX(-100vh);
+        transform: translate(-100vw, 50px) rotate(-1000deg);
     }
+}
+
+.twirl-left {
+    animation: twirl-left 2.5s cubic-bezier(0.5, 1, 0.89, 1) forwards;
+}
+
+.twirl-right {
+    animation: twirl-right 2.5s cubic-bezier(0.5, 1, 0.89, 1) forwards;
 }
