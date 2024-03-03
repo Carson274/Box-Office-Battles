@@ -1,5 +1,6 @@
-import '../styles/MovieComponent.css';
 import { useEffect } from 'react';
+import '../styles/MovieComponent.css';
+import MovieComponentProps from '../types/MovieComponentPropsType';
 
 const MovieComponent = ({ setHasLoaded, hasLoaded, lastUpdated, movieType, movie, handleMovieClick }) => {
   useEffect(() => {
