@@ -2,12 +2,11 @@ import '../styles/index.css';
 import '../styles/global.css';
 import '../styles/leaderboard.css';
 import '../styles/App.css';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const App = () => {
-
+  const navigate = useNavigate();
   const handleButtonClick = () => {
-    console.log('Button clicked')
     const title = document.querySelector('#title') as HTMLHeadingElement ;
     title.style.transform = 'translateX(-1000px)'
 
@@ -19,8 +18,8 @@ const App = () => {
 
     setTimeout(() => {
       console.log('Redirecting to /play');
-      redirect('/play');
-    }, 3000);
+      navigate('/play');
+    }, 1500);
   };
 
   return (
