@@ -40,6 +40,19 @@ const App = () => {
 
 export default App;
 
+import { Link } from 'react-router-dom'
+import '../styles/App.css'
+import '../styles/global.css'
+
+function App() {
+  
+  return (
+    <div id='app-container'>
+      <h1 className="megapunch-font red-gradient">Box Office Battles</h1>
+      <Link to="/play" className="normal-font play-button">Play Now</Link>
+    </div>
+  )
+}
 
 // TODO: Below code is for future mouse glow effect on the logo
 
@@ -68,4 +81,10 @@ export default App;
 //       };
 //     }, []);
 //     return mousePosition;
+<<<<<<< HEAD:Frontend/src/index.tsx
 //   };
+=======
+//   };
+
+export default App
+>>>>>>> 7160c556c028a3daf55265a5531be4d5c7966984:Frontend/src/pages/App.tsx
