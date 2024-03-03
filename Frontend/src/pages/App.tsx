@@ -51,18 +51,18 @@ const App = () => {
         <div className="play-button-wrapper" onClick={handleButtonClick}>
           <button onClick={handleButtonClick} className="play-button large-font italic-text">ENTER THE RING</button>        
         </div>
-        <img className="right-right-right" src="../../public/Images/right-right-right.svg"alt="Right" />
-        <img className="right-right" src="../../public/Images/right-right.svg" alt="Right" />
-        <img className="right" src="../../public/Images/right.svg" alt="Right" />
-        <img className="left" src="../../public/Images/left.svg" alt="Left" />
-        <img className="left-left" src="../../public/Images/left-left.svg" alt="Left" />
-        <img className="left-left-left" src="../../public/Images/left-left-left.svg" alt="Left" />
+        <img className="right-right-right" src="/Images/right-right-right.svg"alt="Right" />
+        <img className="right-right" src="/Images/right-right.svg" alt="Right" />
+        <img className="right" src="/Images/right.svg" alt="Right" />
+        <img className="left" src="/Images/left.svg" alt="Left" />
+        <img className="left-left" src="/Images/left-left.svg" alt="Left" />
+        <img className="left-left-left" src="/Images/left-left-left.svg" alt="Left" />
         <div className="info">
           <a href="https://github.com/Carson274/Box-Office-Battles" target="_blank" rel="noreferrer">
-            <img className="logo github" src="../../public/Images/github.svg" alt="Github" />
+            <img className="logo github" src="/Images/github.svg" alt="Github" />
           </a>
           <a href="https://devpost.com/software/box-office-battles?ref_content=user-portfolio&ref_feature=in_progress" target="_blank" rel="noreferrer">
-            <img className="logo devpost" src="../../public/Images/devpost.svg"  alt="Devpost" />
+            <img className="logo devpost" src="/Images/devpost.svg"  alt="Devpost" />
           </a>
         </div>
         {/* <div className="leaderboard-wrapper">
