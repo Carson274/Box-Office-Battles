@@ -1,31 +1,36 @@
 .left-movie {
     position: absolute;
-    left: 200px;
-    width: 200px;
-    height: 300px;
+    top: 20vh;
+    left: 33vw;
+    width: 150px;
 }
 
 .right-movie {
+    top: 25vh;
     position: absolute;
-    width: 200px;
-    height: 300px;
+    left: 55vw;
+    width: 150px;
 }
 
 .left-glove {
+    top: 20vh;
     position: absolute;
-    left: 200px;
+    left: 38vw;
     width: 100px;
     height: 300px;
 }
 
 .right-glove {
+    top: 25vh;
     position: absolute;
+    left: 60vw;
     width: 100px;
     height: 300px;
 }
 
 .movie-poster {
   animation: idle 1s linear infinite;
+  cursor: pointer;
 }
 
 @keyframes idle {
@@ -91,4 +96,22 @@
   100% {
       transform: translate(10px, 0);
   }
+}
+
+@keyframes slide-left {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }

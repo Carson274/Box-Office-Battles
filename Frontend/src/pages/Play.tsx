@@ -28,22 +28,14 @@ async function getNewMovie(usedMovies: Movie[]) {
   .then(response => response.json());
 }
 
-const setMovie2InRing = () => {
-    const movie2 = document.getElementById('movie2') as HTMLImageElement;
-    movie2.style.right = '35%';
-}
-
-const setMovie1InRing = () => {
-    const movie1 = document.getElementById('movie1') as HTMLImageElement;
-    movie1.style.left = '35%';
-}
-
 const Play = () => {
   const [firstMovie, setFirstMovie] = useState<Movie | null>(null);
   const [secondMovie, setSecondMovie] = useState<Movie | null>(null);
   // make list of used movies
   const [usedMovies, setUsedMovies] = useState<Movie[]>([]);
   const [criterion, setCriterion] = useState<string>('revenue');
+  const [lastUpdatedMovie, setLastUpdatedMovie] = useState<string>('');
+  const [hasLoaded, setHasLoaded] = useState<boolean>(false);
   
   useEffect(() => {
     (async () => {
@@ -65,6 +57,9 @@ const Play = () => {
       })();
   }, []);
 
+  // loading screen
+  if(!firstMovie || !secondMovie) return (<div className="loading">Loading...</div>);
+
   const handleMovieClick = async (clickedMovieId: string) => {
     // get the new movie
     const newMovie = await getNewMovie(usedMovies);
@@ -75,8 +70,10 @@ const Play = () => {
     // replace the lower revenue movie with a new movie
     if(firstMovie?.revenue < secondMovie?.revenue) {
       setFirstMovie(newMovie);
+      setLastUpdatedMovie('first-movie');
     } else {
       setSecondMovie(newMovie);
+      setLastUpdatedMovie('second-movie');
     }
   };
 
@@ -90,10 +87,10 @@ const Play = () => {
       <div id='ring-container'>
         <img src={ring} alt="ring" id="ring" />
           {firstMovie && (
-            <MovieComponent movieType={'left-movie'} movie={firstMovie} handleMovieClick={() => handleMovieClick(firstMovie._id)} />
+            <MovieComponent setHasLoaded={setHasLoaded} hasLoaded={hasLoaded} lastUpdated={lastUpdatedMovie} movieType={'left-movie'} movie={firstMovie} handleMovieClick={() => handleMovieClick(firstMovie._id)} />
           )}
           {secondMovie && (
-            <MovieComponent movieType={'right-movie'} movie={secondMovie} handleMovieClick={() => handleMovieClick(secondMovie._id)} />
+            <MovieComponent setHasLoaded={setHasLoaded} hasLoaded={hasLoaded} lastUpdated={lastUpdatedMovie} movieType={'right-movie'} movie={secondMovie} handleMovieClick={() => handleMovieClick(secondMovie._id)} />
           )}
       </div>
       <div id='criterion-container'>
