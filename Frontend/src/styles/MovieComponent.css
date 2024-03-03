@@ -1,36 +1,39 @@
 .left-movie {
     position: absolute;
-    top: 20vh;
+    top: 40vh;
     left: 33vw;
-    width: 150px;
+    width: 180px;
 }
 
+
+
 .right-movie {
-    top: 25vh;
+    top: 45vh;
     position: absolute;
     left: 55vw;
-    width: 150px;
+    width: 180px;
 }
 
 .left-glove {
-    top: 20vh;
+    top: 40vh;
     position: absolute;
     left: 38vw;
-    width: 100px;
+    width: 120px;
     height: 300px;
 }
 
 .right-glove {
-    top: 25vh;
+    top: 45vh;
     position: absolute;
     left: 60vw;
-    width: 100px;
+    width: 120px;
     height: 300px;
 }
 
 .movie-poster {
-  animation: idle 1s linear infinite;
-  cursor: pointer;
+    animation: idle 1s linear infinite;
+    cursor: pointer;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.7);
 }
 
 @keyframes idle {

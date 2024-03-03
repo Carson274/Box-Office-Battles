@@ -28,6 +28,14 @@ body, html {
     margin: 0px;
 }
 
+.title-font {
+    font-family: 'MegaPunch';
+    font-size: 72px;
+    font-weight: 100;
+    width: 100%;
+    margin: 0px;
+}
+
 .red-gradient {
     font-size: 72px;
     background: -webkit-linear-gradient(#de2222, #850505);

@@ -79,10 +79,19 @@ const Play = () => {
 
   return (
     <div id='play-container'>
-      <div id='movie-title-container'>
-        <h2 className="movie-title">{firstMovie?.title}</h2>
-        <h2 id='vs'>V.S.</h2>
-        <h2 className="movie-title">{secondMovie?.title}</h2>
+      <div className='movie-title-container'>
+        <div className='left-title-container'>
+          <h2 className="movie-title">{firstMovie?.title}</h2>
+        </div>
+        <div className='versus-container'>
+          <h2 id='vs'>VS</h2>
+        </div>
+        <div className='right-title-container'>
+          <h2 className="movie-title">{secondMovie?.title}</h2>
+        </div>
+      </div>
+      <div className='description-container'>
+        <h3 id="description">Choose the movie with the highest earnings</h3>
       </div>
       <div id='ring-container'>
         <img src={ring} alt="ring" id="ring" />
@@ -92,9 +101,6 @@ const Play = () => {
           {secondMovie && (
             <MovieComponent setHasLoaded={setHasLoaded} hasLoaded={hasLoaded} lastUpdated={lastUpdatedMovie} movieType={'right-movie'} movie={secondMovie} handleMovieClick={() => handleMovieClick(secondMovie._id)} />
           )}
-      </div>
-      <div id='criterion-container'>
-        <h3 id='criterion'>New contender! Which</h3>
       </div>
     </div>
   )
