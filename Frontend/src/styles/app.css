@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
+    width: 200px;
     height: 30px;
     border-radius: 10px;
     border: none;
@@ -13,7 +13,8 @@
     font-size: 16px;
     font-weight: 600;
     margin-top: 50px;
-    padding: 10px;
+    margin-left: 50px;
+    padding:10px;
 }
 
 #app-container {
@@ -27,3 +28,16 @@
     padding-top: 30px;
     padding-bottom: 30px;
 }
+
+#title {
+    transition-duration: 4s;
+}
+
+.leaderboard-wrapper {
+    transition-duration: 4s;
+}
+
+.play-button-wrapper {
+    transition-duration: 4s;
+}
+
