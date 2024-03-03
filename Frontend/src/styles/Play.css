@@ -32,21 +32,23 @@
     font-size: 25px;
 }
 
-.movie-title {
+.movie-title-1 {
     font-family: 'impact';
     font-size: 50px;
     background: -webkit-linear-gradient(#de2222, #850505);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.left-title-container {
     padding: 20px;
     width: 40%;
     text-align: center;
 }
 
-.right-title-container {
+.movie-title-2 {
+    font-family: 'impact';
+    font-size: 60px;
+    background: -webkit-linear-gradient(rgb(5, 5, 255), rgb(21, 21, 127));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     padding: 20px;
     width: 40%;
     text-align: center;
@@ -59,6 +61,15 @@
     width: 20%;
     height: 70%;
     font-size: 20px;
+    scale: 1.5;
+}
+
+.score-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 #vs {
@@ -76,6 +87,12 @@
     height: 100vh;
     overflow-x: hidden;
 }
+
+#score-container {
+    position: absolute;
+    margin-top: 785px;
+    margin-right: -1330px;
+  }
 
 #ring-container {
     position: absolute;

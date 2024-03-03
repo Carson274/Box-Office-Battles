@@ -4,7 +4,7 @@ import { useEffect, useState, MouseEvent } from 'react'
 import MovieComponent from '../components/MovieComponent'
 import Movie from '../types/MovieType'
 import GameFinishedModal from '../components/GameFinishedModal'
-import { useNavigate } from 'react-router-dom'
+
 
 // move fetch to get new movie into function
 async function getNewMovie(usedMovies: Movie[]) {
@@ -57,6 +57,12 @@ const Play = () => {
   if(!firstMovie || !secondMovie) return (<div className="loading">Loading...</div>);
 
   const handleMovieClick = async (event: MouseEvent<HTMLImageElement>) => {
+    const playArea = document.getElementById<HTMLDivElement>('play-container')!;
+    playArea.style.pointerEvents = 'none';
+    setTimeout(() => {
+      playArea.style.pointerEvents = 'auto';
+    }, 3500);
+
     const clickedMovieTitle = event.currentTarget.alt;
     console.log(clickedMovieTitle);
     // get the new movie
@@ -104,15 +110,11 @@ const Play = () => {
     <>
       <div id='play-container'>
         <div className='movie-title-container'>
-            <div className='left-title-container'>
-            <h2 className="movie-title">{firstMovie?.title}</h2>
-            </div>
+            <h2 className="movie-title-1">{firstMovie?.title}</h2>
             <div className='versus-container'>
             <h2 id='vs'>VS</h2>
             </div>
-            <div className='right-title-container'>
-            <h2 className="movie-title">{secondMovie?.title}</h2>
-            </div>
+            <h2 className="movie-title-2">{secondMovie?.title}</h2>
         </div>
         <div className='description-container'>
           { displayFirstRevenue ? <h3 id="movie1-stats">{firstMovie.title}'s Revenue: ${new Intl.NumberFormat().format(firstMovie.revenue)}</h3> : null }
@@ -129,6 +131,8 @@ const Play = () => {
                 <MovieComponent winner={winner!} movieType={'right-movie'} movie={secondMovie} handleMovieClick={handleMovieClick} />
             )}
         </div>
+        <div id='score-container'>
+        <h3 id='score'>Streak: {score} 🔥</h3> </div>
       </div>
       {gameLost ? <GameFinishedModal score={score} /> : null}
     </>
