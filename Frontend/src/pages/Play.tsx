@@ -52,6 +52,12 @@ const Play = () => {
   if(!firstMovie || !secondMovie) return (<div className="loading">Loading...</div>);
 
   const handleMovieClick = async (event: MouseEvent<HTMLImageElement>) => {
+    const playArea = document.getElementById<HTMLDivElement>('play-container')!;
+    playArea.style.pointerEvents = 'none';
+    setTimeout(() => {
+      playArea.style.pointerEvents = 'auto';
+    }, 3500);
+
     const clickedMovieTitle = event.currentTarget.alt;
     console.log(clickedMovieTitle);
     // get the new movie

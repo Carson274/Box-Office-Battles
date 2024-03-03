@@ -3,6 +3,16 @@ import '../styles/MovieComponent.css';
 import MovieComponentProps from '../types/MovieComponentPropsType';
 
 const MovieComponent = ({ winner, movieType, movie, handleMovieClick }: MovieComponentProps) => {
+  // random animations
+  function getRandomAnimationLeft() {
+    const animations = ['fall-left', 'twirl-left'];
+    return animations[Math.floor(Math.random() * animations.length)];
+  }
+  function getRandomAnimationRight() {
+    const animations = ['fall-right', 'twirl-right'];
+    return animations[Math.floor(Math.random() * animations.length)];
+  }
+
   useEffect(() => {
     const leftMovie = document.querySelector<HTMLImageElement>('.left-movie')!;
     const rightMovie = document.querySelector<HTMLImageElement>('.right-movie')!;
@@ -55,8 +65,19 @@ const MovieComponent = ({ winner, movieType, movie, handleMovieClick }: MovieCom
     if (leftMovie && leftMovie.alt !== winner.title) {
       // do falling animation
       console.log("left movie falling")
-      leftMovie.style.animation = 'fall 2s ease-out';
-      leftGlove.style.animation = 'fall 2s ease-out';
+      setTimeout(() => {
+        let animation = getRandomAnimationLeft();
+        // add fall-left class
+        leftMovie.classList.add(`${animation}`);
+        leftGlove.classList.add(`${animation}`);
+
+        setTimeout(() => {
+          leftMovie.classList.remove(`${animation}`);
+          leftGlove.classList.remove(`${animation}`);
+          leftMovie.style.animation = '';
+          leftGlove.style.animation = '';
+        }, 2800);
+      }, 200);
     } else {
       // do punching animation
       console.log("left movie punching")
@@ -64,9 +85,19 @@ const MovieComponent = ({ winner, movieType, movie, handleMovieClick }: MovieCom
     }
 
     if (rightMovie && rightMovie.alt !== winner.title) {
-      // do falling animation, right movie lost
-      rightMovie.style.animation = 'fall 2s ease-out';
-      rightGlove.style.animation = 'fall 2s ease-out';
+      setTimeout(() => {
+        let animation = getRandomAnimationRight();
+        // do falling animation, right movie lost
+        rightMovie.classList.add(`${animation}`);
+        rightGlove.classList.add(`${animation}`);
+
+        setTimeout(() => {
+          rightMovie.classList.remove(`${animation}`);
+          rightGlove.classList.remove(`${animation}`);
+          rightMovie.style.animation = '';
+          rightGlove.style.animation = '';
+        }, 2800);
+      }, 200);
     } else {
       // do punching animation, right movie won
       rightGlove.style.animation = 'punch-left 0.43s ease-out';
@@ -77,7 +108,7 @@ const MovieComponent = ({ winner, movieType, movie, handleMovieClick }: MovieCom
     return (
       <>
         <img className='left-movie movie-poster' src={movie.poster_url} alt={movie.title} onClick={handleMovieClick} />
-        <img className='left-glove glove' src='/Images/boxing-glove-left.svg' alt='First Movie' />
+        <img className='left-glove glove' src='/Images/left-glove.svg' alt='First Movie' />
       </>
     );
   }
