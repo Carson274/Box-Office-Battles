@@ -67,6 +67,7 @@ const Play = () => {
     }
   };
 
+
   return (
     <div id='play-container'>
       <div className='movie-title-container'>

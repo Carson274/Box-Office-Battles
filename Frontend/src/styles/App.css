@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 30px;
+    width: 250px;
+    height: 40px;
     border-radius: 10px;
     border: none;
     background-color: rgb(189, 189, 189);
@@ -13,7 +13,7 @@
     font-size: 16px;
     font-weight: 600;
     margin-top: 50px;
-    margin-left: 50px;
+    margin-left: 75px;
     padding:10px;
 }
 
@@ -31,6 +31,7 @@
 
 #title {
     transition-duration: 4s;
+    margin-left: 30px;
 }
 
 .leaderboard-wrapper {
@@ -40,4 +41,5 @@
 .play-button-wrapper {
     transition-duration: 4s;
 }
+
 

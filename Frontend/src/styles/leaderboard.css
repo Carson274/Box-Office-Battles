@@ -27,7 +27,7 @@
 
 .leaderboard-title {
     color: yellow;
-    padding: 25px;  
+    padding: 35px;  
 }
 
 .centered-table {
@@ -41,7 +41,7 @@
 .centered-table {
     border-collapse: separate; 
     border-spacing: 0; 
-    border-radius: 10px;
+    border-radius: 15px;
     border: 3px solid yellow;
 }
 
@@ -64,7 +64,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 1200px;
+    margin-left: 1300px;
     margin-top: 100px;
     transform: scale(1.5);
 }
@@ -74,7 +74,7 @@
 }
 
 .centered-table {
-    background-color: #333;
+    background-color: inherit;
 }
 
 .centered-table th, .centered-table td {
@@ -90,7 +90,7 @@
 }
 
 .large-font {
-    font-size: 1.35em;
+    font-size: 3em;
     font-weight: bold;
 }
 
@@ -99,8 +99,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center; /* This will center the elements vertically */
-    margin-top: 160px;
-    margin-left: 1200px;
+    margin-top: -215px;
+    margin-left: 1160px;
 }
 
 .image-container {
@@ -112,4 +112,13 @@
     top: 20%;
     left: 15%;
     width: 70%;
+    scale: 0.9;
 }
+
+.centered-table tr {
+    height: 55px; 
+}
+
+.centered-table th.blue-font, .centered-table td.blue-font {
+    color: blue !important;
+  }
