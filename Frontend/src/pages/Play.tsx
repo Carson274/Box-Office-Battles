@@ -1,5 +1,5 @@
 import '../styles/Play.css'
-import ring from '../../public/ring.svg'
+import ring from '/Images/Ring.svg'
 import { useEffect, useState, MouseEvent } from 'react'
 
 interface Movie {
@@ -21,6 +21,16 @@ const handleMovieClick = (event: MouseEvent<HTMLImageElement>) => {
     else if (movie.alt === 'movie2') {
         console.log('Movie 2 clicked');
     }
+}
+
+const setMovie2InRing = () => {
+    const movie2 = document.getElementById('movie2') as HTMLImageElement;
+    movie2.style.right = '35%';
+}
+
+const setMovie1InRing = () => {
+    const movie1 = document.getElementById('movie1') as HTMLImageElement;
+    movie1.style.left = '35%';
 }
 
 const Play = () => {
@@ -62,12 +72,10 @@ const Play = () => {
       </div>
       <div id='ring-container'>
         <img src={ring} alt="ring" id="ring" />
-        <img src={firstMovie?.poster_url} alt="movie1" id="movie1" onClick={handleMovieClick} />
-        <img src={secondMovie?.poster_url} alt="movie2" id="movie2" onClick={handleMovieClick} />
+        <img src={firstMovie?.poster_url} alt="movie1" id="movie1" onClick={handleMovieClick} onLoad={setMovie2InRing} />
+        <img src={secondMovie?.poster_url} alt="movie2" id="movie2" onClick={handleMovieClick} onLoad={setMovie1InRing} />
       </div>
-      <div id='criterion-container'>
-        <h3 id='criterion'>Guess which movie has accumilated the most revenue!</h3>
-      </div>
+      <h3 id='criterion'>Guess which movie has accumilated the most revenue!</h3>
     </div>
   )
 }
