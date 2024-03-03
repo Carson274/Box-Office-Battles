@@ -1,0 +1,115 @@
+.centered-table th, .centered-table td {
+    text-align: center;
+}
+
+.leaderboard-title {
+    color: yellow;
+    font-family: 'MegaPunch';
+}
+
+.leaderboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.centered-table th, .centered-table td {
+    text-align: center;
+}
+
+.centered-table th {
+    border-bottom: 1px solid yellow;
+}
+
+.centered-table tbody tr:first-child td {
+    border-top: 2px solid yellow;
+}
+
+.leaderboard-title {
+    color: yellow;
+    padding: 25px;  
+}
+
+.centered-table {
+    border-collapse: collapse;
+}
+
+.centered-table th:first-child {
+    border-right: 1px solid black;
+}
+
+.centered-table {
+    border-collapse: separate; 
+    border-spacing: 0; 
+    border-radius: 10px;
+    border: 3px solid yellow;
+}
+
+.centered-table th:first-child,
+.centered-table td:first-child {
+    border-right: 2px solid yellow;
+}
+
+.centered-table th:first-child,
+.centered-table td:first-child {
+    width: 100px;
+}
+
+.centered-table th:nth-child(2),
+.centered-table td:nth-child(2) {
+    width: 60px;
+}
+
+.leaderboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1200px;
+    margin-top: 100px;
+    transform: scale(1.5);
+}
+
+.centered-table {
+    margin-top: -20px; ;
+}
+
+.centered-table {
+    background-color: #333;
+}
+
+.centered-table th, .centered-table td {
+    color: white;
+}
+
+.italic-text {
+    font-style: italic;
+}
+
+.small-font {
+    font-size: 0.8em;
+}
+
+.large-font {
+    font-size: 1.35em;
+    font-weight: bold;
+}
+
+.leaderboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* This will center the elements vertically */
+    margin-top: 160px;
+    margin-left: 1200px;
+}
+
+.image-container {
+    margin-bottom: 500px;
+}
+
+.ring {
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    width: 70%;
+}

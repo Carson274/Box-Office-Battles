@@ -25,7 +25,7 @@ app.get('/getOriginalMovie', async (req, res) => {
         res.status(201).json(movie[0]);
     })
     .catch(error => {
-        res.status(400).send({ Error: "Request failed" });
+        res.status(400).json({ Error: "Request failed" });
     })
 });
 
@@ -41,8 +41,35 @@ app.post('/getNewMovie', async (req, res) => {
         res.status(201).json(movie[0]);
     })
     .catch(error => {
-        res.status(400).send({ Error: "Request failed" });
+        console.log(error)
+        res.status(400).json({ Error: "Request failed" });
     })
+});
+
+// request body needs to contain the following fields: username, score
+// Gets all scores from the database
+app.get('/scores', async (req, res) => {
+    scores.getScores()
+        .then(scores => {
+            res.status(201).json(scores);
+        })
+        .catch(error => {
+            res.status(400).json({ Error: "Request failed" });
+        })
+});
+
+// request body needs to contain the following fields: username, score
+// Adds a score to the database
+app.post('/scores', async (req, res) => {
+    const username = req.body.username;
+    const score = req.body.score;
+    scores.addScore(username, score)
+        .then(score => {
+            res.status(201).json(score);
+        })
+        .catch(error => {
+            res.status(400).json({ Error: "Request failed" });
+        })
 });
 
 app.listen(PORT, () => {
