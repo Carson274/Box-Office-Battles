@@ -4,17 +4,7 @@ import boxingGloveLeft from '../../public/Images/boxing-glove-left.svg'
 import boxingGloveRight from '../../public/Images/boxing-glove-right.svg'
 import { useEffect, useState, MouseEvent } from 'react'
 import MovieComponent from '../components/MovieComponent'
-
-interface Movie {
-    _id: string;
-    title: string;
-    revenue: number;
-    rating: number;
-    release_date: string; //YYYY-MM-DD
-    popularity: number;
-    budget: number;
-    poster_url: string;
-}
+import Movie from '../types/MovieType'
 
 // move fetch to get new movie into function
 async function getNewMovie(usedMovies: Movie[]) {
@@ -68,7 +58,7 @@ const Play = () => {
     setUsedMovies([...usedMovies, newMovie]);
 
     // replace the lower revenue movie with a new movie
-    if(firstMovie?.revenue < secondMovie?.revenue) {
+    if(firstMovie!.revenue < secondMovie!.revenue) {
       setFirstMovie(newMovie);
       setLastUpdatedMovie('first-movie');
     } else {

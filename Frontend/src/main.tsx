@@ -4,6 +4,7 @@ import App from './pages/App.tsx'
 import Play from './pages/Play.tsx'
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import './styles/global.css'
+import GameFinishedModal from './components/GameFinishedModal.tsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Routes>
             <Route path="/" element={<App />} />
             <Route path="/play" element={<Play />} />
+            <Route path="/testModal" element={<GameFinishedModal />} />
         </Routes>
     </BrowserRouter>
   </React.StrictMode>,
