@@ -67,6 +67,14 @@ const App = () => {
         <img className="left" src="../../public/Images/left.svg" alt="Left" />
         <img className="left-left" src="../../public/Images/left-left.svg" alt="Left" />
         <img className="left-left-left" src="../../public/Images/left-left-left.svg" alt="Left" />
+        <div className="info">
+          <a href="https://github.com/Carson274/Box-Office-Battles" target="_blank" rel="noreferrer">
+            <img className="logo github" src="../../public/Images/github.svg" alt="Github" />
+          </a>
+          <a href="https://devpost.com/software/box-office-battles?ref_content=user-portfolio&ref_feature=in_progress" target="_blank" rel="noreferrer">
+            <img className="logo devpost" src="../../public/Images/devpost.svg"  alt="Devpost" />
+          </a>
+        </div>
         {/* <div className="leaderboard-wrapper">
           <h3 className="leaderboard-title">Leaderboards</h3>
           <table className="centered-table">

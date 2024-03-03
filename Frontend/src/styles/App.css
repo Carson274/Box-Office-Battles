@@ -140,3 +140,29 @@
         transform: translateX(-100vw);
     }
 }
+
+.info {
+    position: absolute;
+    display: flex;
+    bottom: 20px;
+    gap: 20px;
+}
+
+.logo {
+    height: 60px;
+    width: 60px;
+}
+
+.logo:hover {
+    cursor: pointer;
+    animation: scale-up 0.5s forwards;
+}
+
+@keyframes scale-up {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
