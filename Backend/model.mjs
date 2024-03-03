@@ -91,8 +91,15 @@ const deleteMovie = async (filter) => {
 // SCORE MODEL CODE:
 
 // find all scores (for leaderboard)
-const findScores = async () => {
-    const query = await Score.find();
+const getScores = async () => {
+    // get top 5 scores from the database
+    const query = await Score.aggregate(
+        [
+            { $sort: { score: -1 } },
+            { $limit: 5 }
+        ]
+    );
+    console.log(query)
     return query;
 }
 
@@ -102,4 +109,4 @@ const addScore = async (username, score) => {
     return newScore.save();
 }
 
-export { createMovie, findMovieById, findMovies, updateMovie, deleteMovie, getOriginalMovie, getNewMovie, findScores, addScore };
+export { createMovie, findMovieById, findMovies, updateMovie, deleteMovie, getOriginalMovie, getNewMovie, getScores, addScore };
