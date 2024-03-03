@@ -4,7 +4,7 @@ import { useEffect, useState, MouseEvent } from 'react'
 import MovieComponent from '../components/MovieComponent'
 import Movie from '../types/MovieType'
 import GameFinishedModal from '../components/GameFinishedModal'
-
+import kickTiredMovie from '../utils/PlayHelpers'
 
 // move fetch to get new movie into function
 async function getNewMovie(usedMovies: Movie[]) {
@@ -18,7 +18,7 @@ async function getNewMovie(usedMovies: Movie[]) {
   .then(response => response.json());
 }
 
-const punchCount = 1;
+const punchAudioFileCount = 1;
 
 const Play = () => {
   const [firstMovie, setFirstMovie] = useState<Movie | null>(null);
@@ -32,6 +32,8 @@ const Play = () => {
   const [gameLost, setGameLost] = useState<boolean>(false);
   const [displayFirstRevenue, setDisplayFirstRevenue] = useState<boolean | null>(null);
   const [displaySecondRevenue, setDisplaySecondRevenue] = useState<boolean | null>(null);
+  const [firstMovieFrequency, setFirstMovieFrequency] = useState<number>(0);
+  const [secondMovieFrequency, setSecondMovieFrequency] = useState<number>(0);
   
   useEffect(() => {
     (async () => {
@@ -57,54 +59,96 @@ const Play = () => {
   if(!firstMovie || !secondMovie) return (<div className="loading">Loading...</div>);
 
   const handleMovieClick = async (event: MouseEvent<HTMLImageElement>) => {
-    const playArea = document.getElementById<HTMLDivElement>('play-container')!;
+    console.log(firstMovieFrequency, secondMovieFrequency)
+    const playArea = document.getElementById('play-container')!;
     playArea.style.pointerEvents = 'none';
     setTimeout(() => {
       playArea.style.pointerEvents = 'auto';
     }, 3500);
 
     const clickedMovieTitle = event.currentTarget.alt;
-    console.log(clickedMovieTitle);
+
     // get the new movie
-    const newMovie = await getNewMovie(usedMovies);
+    const newMovie: Movie = await getNewMovie(usedMovies);
+    console.log("HAOSFNPODN", newMovie)
 
     // add the new movie to the used movies array
     setUsedMovies([...usedMovies, newMovie]);
 
-    const randomPunch = Math.floor(Math.random() * punchCount) + 1;
+    const randomPunch = Math.floor(Math.random() * punchAudioFileCount) + 1;
     const punchNoise = new Audio(`/Audio/punch${randomPunch}.wav`);
-    punchNoise.volume = 0.5;
+    punchNoise.volume = 0.3;
     // replace the lower revenue movie with a new movie
     if(firstMovie!.revenue < secondMovie!.revenue && clickedMovieTitle === secondMovie!.title) {
+      // Add one to the score
       setScore(score + 1);
-      setWinner(secondMovie);
+
+      // Show the revenue of the second movie
       setDisplaySecondRevenue(true);
       setDisplayFirstRevenue(false);
-      setTimeout(() => {
-        setFirstMovie(newMovie);
-        setWinner(null);
-      }, 2000);
+
+      // Add one to count of how many times the second movie has been shown in a row and reset the first movie count
+      setSecondMovieFrequency(secondMovieFrequency + 1);
+      setFirstMovieFrequency(0);
+
+      // Play the punch noise
       punchNoise.play();
+
+      // If the second movie has been shown three times in a row, replace the first movie with a new movie
+      if (secondMovieFrequency === 2) {
+        kickTiredMovie(firstMovie, newMovie, setWinner, setFirstMovieFrequency, setSecondMovie, setDisplaySecondRevenue);
+        return;
+      }
+
+      // Set the winner to the second movie (TRIGGERS ANIMATIONS)
+      setWinner(secondMovie);
+
+      setTimeout(() => {
+        // Change the first movie to the newly fetched movie
+        setFirstMovie(newMovie);
+
+        // Reset the winner to null to reset animation trigger
+        setWinner(null);
+
+      }, 2000);
     } else if (firstMovie!.revenue > secondMovie!.revenue && clickedMovieTitle === firstMovie!.title){
+      // Update user score
       setScore(score + 1);
-      setWinner(firstMovie);
+
+      // Show the revenue of the first movie
       setDisplayFirstRevenue(true);
       setDisplaySecondRevenue(false);
+
+      // Add one to count of how many times the first movie has been shown in a row and reset the second movie count
+      setFirstMovieFrequency(firstMovieFrequency + 1);
+      setSecondMovieFrequency(0);
+      punchNoise.play();
+
+      // If the first movie has been shown 3 times in a row, replace it with a new movie
+      if (firstMovieFrequency === 2) {
+        kickTiredMovie(secondMovie, newMovie, setWinner, setSecondMovieFrequency, setFirstMovie, setDisplayFirstRevenue);
+        return;
+      }
+
+      // Set the winner to the first movie (TRIGGERS ANIMATIONS)
+      setWinner(firstMovie);
+
       setTimeout(() => {
+        // Change the second movie to the newly fetched movie
         setSecondMovie(newMovie);
+
+        // Reset the winner to null to reset animation trigger
         setWinner(null);
       }, 1500);
-      punchNoise.play();
     } else {
         const playArea = document.getElementById('play-container')!;
         playArea.style.filter = 'blur(20px)';
         const ko = new Audio('/Audio/ko.mp3');
-        ko.volume = 0.5;
+        ko.volume = 0.3;
         ko.play();
         setGameLost(true);
     }
   };
-
 
   return (
     <>
@@ -118,8 +162,9 @@ const Play = () => {
         </div>
         <div className='description-container'>
           { displayFirstRevenue ? <h3 id="movie1-stats">{firstMovie.title}'s Revenue: ${new Intl.NumberFormat().format(firstMovie.revenue)}</h3> : null }
-          { !displayFirstRevenue && !displaySecondRevenue ? <h3 id="description">Choose the movie with the highest earnings!</h3> : null }
+          { displayFirstRevenue === null && displaySecondRevenue === null ? <h3 id="description">Choose the movie with the highest earnings!</h3> : null }
           { displaySecondRevenue ? <h3 id="movie2-stats">{secondMovie.title} Revenue: ${new Intl.NumberFormat().format(secondMovie.revenue)}</h3>: null }
+          { displayFirstRevenue === false && displaySecondRevenue === false ? <h3 id="description">That movie got tired of fighting, new one in!</h3> : null}
         </div>
 
         <div id='ring-container'>
