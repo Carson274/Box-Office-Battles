@@ -1,15 +1,21 @@
 import '../styles/GameFinishedModal.css';
+import GameFinishedModalProps from '../types/GameFinishedModalPropsType';
 
-const GameFinishedModal = () => {
-
+const GameFinishedModal = ({score}: GameFinishedModalProps) => {
+  
   return (
     <div className='modal-container'>
       <div className='modal-content'>
-          <h2 className='modal-title'>Game Over</h2>
-          <p className='modal-text'>You have finished the game. Your score is 10.</p>
-          <div className='button'>
-            <button className='play-again-button'>Play Again</button>
+        <img id="ko" src='/Images/ko.png' alt='KO' />
+          <h1 className='score-text'>Your streak: {score}</h1>
+          <h2 className='submit-heading'>Enter your name to submit your score to the leaderboard</h2>
+          <form id="submit-score">
+            <input type='score' placeholder='Username...' />
             <button className='submit-score-button'>Submit Score</button>
+          </form>
+          <div className="form-group">
+            <input className="form-field" type="email" placeholder="Email" />
+            <span>@gmail.com</span>
           </div>
       </div>
     </div>
