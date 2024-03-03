@@ -1,3 +1,5 @@
+import Movie from './MovieType';
+
 interface MovieComponentProps {
     movieType: string;
     movie: {
@@ -11,9 +13,7 @@ interface MovieComponentProps {
         poster_url: string;
     };
     handleMovieClick: (e: React.MouseEvent<HTMLImageElement>) => void;
-    hasLoaded: boolean;
-    setHasLoaded: React.Dispatch<React.SetStateAction<boolean>>;
-    
+    winner: Movie;
 }
 
 export default MovieComponentProps;
