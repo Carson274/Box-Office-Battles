@@ -1,13 +1,14 @@
-import './styles/index.css'
-import './styles/global.css'
-import './styles/leaderboard.css'
-import './styles/app.css'
+import '../styles/index.css'
+import '../styles/global.css'
+import '../styles/leaderboard.css'
+import '../styles/app.css'
+import { Link } from 'react-router-dom'
 
 const App = () => {
   return (
     <>
     <h1 className="megapunch-font red-gradient">BOX OFFICE <br /> <span className="blue-font">BATTLES</span></h1>  
-      <button className="play-button large-font italic-text">ENTER THE RING</button>
+      <Link to="/play" className="play-button large-font italic-text">ENTER THE RING</Link>
       <div className="leaderboard-wrapper">
         <div className="leaderboard-container">
           <h3 className="leaderboard-title">Leaderboards</h3>
@@ -40,20 +41,6 @@ const App = () => {
 
 export default App;
 
-import { Link } from 'react-router-dom'
-import '../styles/App.css'
-import '../styles/global.css'
-
-function App() {
-  
-  return (
-    <div id='app-container'>
-      <h1 className="megapunch-font red-gradient">Box Office Battles</h1>
-      <Link to="/play" className="normal-font play-button">Play Now</Link>
-    </div>
-  )
-}
-
 // TODO: Below code is for future mouse glow effect on the logo
 
 // interface MouseLocation {
@@ -81,10 +68,4 @@ function App() {
 //       };
 //     }, []);
 //     return mousePosition;
-<<<<<<< HEAD:Frontend/src/index.tsx
 //   };
-=======
-//   };
-
-export default App
->>>>>>> 7160c556c028a3daf55265a5531be4d5c7966984:Frontend/src/pages/App.tsx
