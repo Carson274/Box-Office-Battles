@@ -9,7 +9,7 @@ import { FaVolumeUp, FaVolumeMute } from "react-icons/fa";
 
 // move fetch to get new movie into function
 async function getNewMovie(usedMovies: Movie[]) {
-  return fetch('http://localhost:3000/getNewMovie/', {
+  return fetch('http://3.15.198.16:3000/getNewMovie/', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const Play = () => {
   
   useEffect(() => {
     (async () => {
-        const firstMovie: Movie = await fetch('http://localhost:3000/getOriginalMovie/', {
+        const firstMovie: Movie = await fetch('http://3.15.198.16:3000/getOriginalMovie/', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
