@@ -41,7 +41,6 @@ app.post('/getNewMovie', async (req, res) => {
         res.status(201).json(movie[0]);
     })
     .catch(error => {
-        console.log(error)
         res.status(400).json({ Error: "Request failed" });
     })
 });
@@ -49,7 +48,7 @@ app.post('/getNewMovie', async (req, res) => {
 // request body needs to contain the following fields: username, score
 // Gets all scores from the database
 app.get('/scores', async (req, res) => {
-    scores.getScores()
+    movies.getScores()
         .then(scores => {
             res.status(201).json(scores);
         })
@@ -61,9 +60,10 @@ app.get('/scores', async (req, res) => {
 // request body needs to contain the following fields: username, score
 // Adds a score to the database
 app.post('/scores', async (req, res) => {
-    const username = req.body.username;
+    console.log(req.body)
+    const username = req.body.name;
     const score = req.body.score;
-    scores.addScore(username, score)
+    movies.addScore(username, score)
         .then(score => {
             res.status(201).json(score);
         })
