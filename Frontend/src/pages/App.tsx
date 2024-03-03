@@ -52,32 +52,3 @@ const App = () => {
 }
 
 export default App;
-
-// TODO: Below code is for future mouse glow effect on the logo
-
-// interface MouseLocation {
-//     x: number | null;
-//     y: number | null;
-// }
-
-// const logoGlowEffect = (e: any) => {
-    
-// }
-
-// const useMousePosition = () => {
-//     const [
-//       mousePosition,
-//       setMousePosition
-//     ] = useState<MouseLocation>({ x: null, y: null });
-
-//     useEffect(() => {
-//       const updateMousePosition = (ev: MouseEvent) => {
-//         setMousePosition({ x: ev.clientX, y: ev.clientY });
-//       };
-//       window.addEventListener('mousemove', updateMousePosition);
-//       return () => {
-//         window.removeEventListener('mousemove', updateMousePosition);
-//       };
-//     }, []);
-//     return mousePosition;
-//   };
