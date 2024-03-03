@@ -5,6 +5,7 @@ import MovieComponent from '../components/MovieComponent'
 import Movie from '../types/MovieType'
 import GameFinishedModal from '../components/GameFinishedModal'
 import kickTiredMovie from '../utils/PlayHelpers'
+import { FaVolumeUp, FaVolumeMute } from "react-icons/fa";
 
 // move fetch to get new movie into function
 async function getNewMovie(usedMovies: Movie[]) {
@@ -21,6 +22,8 @@ async function getNewMovie(usedMovies: Movie[]) {
 const punchAudioFileCount = 1;
 
 const Play = () => {
+  const [muted, setMuted] = useState<boolean>(false);
+
   const [firstMovie, setFirstMovie] = useState<Movie | null>(null);
   const [secondMovie, setSecondMovie] = useState<Movie | null>(null);
 
@@ -77,7 +80,7 @@ const Play = () => {
 
     const randomPunch = Math.floor(Math.random() * punchAudioFileCount) + 1;
     const punchNoise = new Audio(`/Audio/punch${randomPunch}.wav`);
-    punchNoise.volume = 0.3;
+    punchNoise.volume = muted ? 0 : 0.3;
     // replace the lower revenue movie with a new movie
     if(firstMovie!.revenue < secondMovie!.revenue && clickedMovieTitle === secondMovie!.title) {
       // Add one to the score
@@ -144,7 +147,7 @@ const Play = () => {
         const playArea = document.getElementById('play-container')!;
         playArea.style.filter = 'blur(20px)';
         const ko = new Audio('/Audio/ko.mp3');
-        ko.volume = 0.3;
+        ko.volume = muted ? 0 : 0.3;
         ko.play();
         setGameLost(true);
     }
@@ -177,7 +180,11 @@ const Play = () => {
             )}
         </div>
         <div id='score-container'>
-        <h3 id='score'>Streak: {score} 🔥</h3> </div>
+            <h3 id='score'>Streak: {score} 🔥</h3> 
+        </div>
+        <div id='mute-container'>
+            { muted ? <FaVolumeMute size={40} color='white' onClick={() => {setMuted(!muted)}} /> : <FaVolumeUp size={40} color='white' onClick={() => {setMuted(!muted)}} /> }
+        </div>
       </div>
       {gameLost ? <GameFinishedModal score={score} /> : null}
     </>

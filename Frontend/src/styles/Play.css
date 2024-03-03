@@ -32,6 +32,10 @@
     font-size: 25px;
 }
 
+#score {
+    font-size: 25px;
+}
+
 .movie-title-1 {
     font-family: 'impact';
     font-size: 50px;
@@ -90,9 +94,15 @@
 
 #score-container {
     position: absolute;
-    margin-top: 785px;
-    margin-right: -1330px;
-  }
+    top: 92vh;
+    left: 89vw;
+}
+
+#mute-container {
+    position: absolute;
+    top: 91vh;
+    right: 94vw;
+}
 
 #ring-container {
     position: absolute;
