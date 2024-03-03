@@ -14,7 +14,7 @@ db.once('open', () => {
   console.log('Successfully connected to MongoDB using Mongoose!');
 });
 
-// define the schema
+// define the movie schema
 const movieSchema = new mongoose.Schema({
   id: { type: Number, required: true },
   budget: { type: Number, required: true },
@@ -25,8 +25,18 @@ const movieSchema = new mongoose.Schema({
   poster_url: { type: String, required: true }
 });
 
-// compile the model from the schema. This must be done after defining the schema
-const Movie = mongoose.model("Movie", movieSchema)
+// define the score schema
+const scoreSchema = new mongoose.Schema({
+    username: { type: String, required: true },
+    score: { type: Number, required: true }
+});
+
+// compile both models from the schemas
+const Movie = mongoose.model("Movie", movieSchema, "movies");
+const Score = mongoose.model("Score", scoreSchema, "scores");
+
+
+// MOVIE MODEL CODE:
 
 const getOriginalMovie = async () => {
     // get a random movie from the database
@@ -35,14 +45,14 @@ const getOriginalMovie = async () => {
 }
 
 const getNewMovie = async (usedMovies) => {
-    let movieSet = new Set(usedMovies);
+    let movieSet = new Set(usedMovies.filter(movie => movie !== undefined).map(movie => movie.title));
+    console.log(movieSet);
 
     while(true) {
         // get a random movie from the database
         const movie = await Movie.aggregate([{ $sample: { size: 1 } }]);
-
         // if the movie isn't in the set, return it
-        if (!movieSet.has(movie[0].id)) {
+        if (!movieSet.has(movie[0].title)) {
             return movie;
         }
 
@@ -76,6 +86,20 @@ const updateMovie = async (filter, update) => {
 const deleteMovie = async (filter) => {
     const result = await Movie.deleteOne(filter);
     return result.deletedCount;
+};
+
+// SCORE MODEL CODE:
+
+// find all scores (for leaderboard)
+const findScores = async () => {
+    const query = await Score.find();
+    return query;
 }
 
-export { createMovie, findMovieById, findMovies, updateMovie, deleteMovie, getOriginalMovie, getNewMovie };
+// Add a score
+const addScore = async (username, score) => {
+    const newScore = new Score({ username: username, score: score });
+    return newScore.save();
+}
+
+export { createMovie, findMovieById, findMovies, updateMovie, deleteMovie, getOriginalMovie, getNewMovie, findScores, addScore };
