@@ -2,7 +2,7 @@
 
 ## Check It Out!
 - **Live Site**:
-  - [Website Link](http://d355ns06s6j0t6.cloudfront.net/)
+  - [Website Link](https://boxofficebattles.lol)
 - **BeaverHacks Submission**:
   - [Devpost Link](https://devpost.com/software/box-office-battles#updates)
 - **Video Overview**:
