@@ -25,8 +25,8 @@ const options = {
 
 // function to create new movies
 async function fillDatabase() {
-  // iterate through 8 pages of movies
-  for (let i = 1; i <= 8; i++) {
+  // iterate through x pages of movies
+  for (let i = 3; i <= 10; i++) {
     // for each page, fetch the top rated movies
     const data = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${i}`, options).then(response => response.json());
     

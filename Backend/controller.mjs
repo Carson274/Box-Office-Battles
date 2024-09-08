@@ -2,12 +2,20 @@ import 'dotenv/config';
 import * as movies from './model.mjs';
 import express from 'express';
 import cors from 'cors';
+import fs from 'fs';
+import https from 'https';
+
+const key = fs.readFileSync('private.key');
+const cert = fs.readFileSync('certificate.crt');
+
+const cred = {
+    key,
+    cert
+}
 
 const PORT = process.env.PORT;
 
 const app = express();
-
-app.use(express.json());
 
 app.use(cors());
 
@@ -26,6 +34,7 @@ app.get('/getOriginalMovie', async (req, res) => {
     })
     .catch(error => {
         res.status(400).json({ Error: "Request failed" });
+        console.log(error);
     })
 });
 
@@ -72,7 +81,18 @@ app.post('/scores', async (req, res) => {
         })
 });
 
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}...`);
-    console.log(`Click me to access the site: http://localhost:${PORT}`);
+// app.get('/.well-known/pki-validation/2D7F90C6E0CC72C6F06BA1C6C490AE0C.txt', (req, res) => {
+//     res.sendFile('/app/2D7F90C6E0CC72C6F06BA1C6C490AE0C.txt');
+// });
+
+// app.listen(PORT, () => {
+//     console.log(`Server listening on port ${PORT}...`);
+//     console.log(`Click me to access the site: http://localhost:${PORT}`);
+// });
+
+const server = https.createServer(cred, app);
+
+server.listen(443, () => {
+    console.log(`Server listening on port ${443}...`);
+    console.log(`Click me to access the site: https://localhost:${443}`);
 });

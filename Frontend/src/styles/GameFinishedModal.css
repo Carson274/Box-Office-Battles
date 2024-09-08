@@ -105,11 +105,29 @@ input:focus {
     border-radius: 10px;
     background-color: #cdcdcd;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 600;
     cursor: pointer;
 }
 
 #submit-button:hover {
+    background-color: #bfbfbf;
+    transform: scale(1.05);
+}
+
+.home-link {
+    margin-top: 20px;
+    text-decoration: none;
+    color: #333333;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #cdcdcd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.home-link:hover {
     background-color: #bfbfbf;
     transform: scale(1.05);
 }

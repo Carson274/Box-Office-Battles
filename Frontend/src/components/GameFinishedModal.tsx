@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 import '../styles/GameFinishedModal.css';
 import '../styles/leaderboard.css';
 import GameFinishedModalProps from '../types/GameFinishedModalPropsType';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const GameFinishedModal = ({score}: GameFinishedModalProps) => {
   useEffect(() => {
     (async () => {
     // populate leaderboard table with 5 top scores
-      const response = await fetch('http://3.15.198.16:3000/scores/');
+      const response = await fetch('https://54.86.116.161/scores/');
       const data = await response.json();
       const leaderboardTable = document.querySelector('tbody')!;
       leaderboardTable.innerHTML = '';
@@ -32,7 +32,7 @@ const GameFinishedModal = ({score}: GameFinishedModalProps) => {
     if (!nameInput.value) return alert('Please enter your name')
     
     const name = nameInput.value;
-    await fetch('http://3.15.198.16:3000/scores/', {
+    await fetch('https://54.86.116.161/scores/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -59,6 +59,7 @@ const GameFinishedModal = ({score}: GameFinishedModalProps) => {
                     <input type='text' id='name-input' placeholder='Enter your name' />
                     <button id='submit-button' onClick={submitScore}>Submit</button>
                 </div>
+                <Link to='/' className='home-link'>Back to Home</Link>
             </div>
             <div id="leaderboard-container">
                     <div className="leaderboard-wrapper">
