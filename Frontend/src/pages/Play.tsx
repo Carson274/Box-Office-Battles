@@ -16,7 +16,7 @@ async function getNewMovie(usedMovies: Movie[]) {
       },
       body: JSON.stringify(
         {
-          usedMovies: usedMovies
+          usedMovies
         }
       )
   })
@@ -55,7 +55,7 @@ const Play = () => {
         // add the first movie to the used movies array
         setUsedMovies([...usedMovies, firstMovie]);
 
-        const secondMovie: Movie = await getNewMovie(usedMovies);
+        const secondMovie: Movie = await getNewMovie([firstMovie]);
 
         setFirstMovie(firstMovie);
         setSecondMovie(secondMovie);
