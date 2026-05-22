@@ -1,8 +1,6 @@
 # Box Office Battles
 
 ## Check It Out!
-- **Live Site**:
-  - [Website Link](https://boxofficebattles.lol)
 - **BeaverHacks Submission**:
   - [Devpost Link](https://devpost.com/software/box-office-battles#updates)
 - **Video Overview**:
