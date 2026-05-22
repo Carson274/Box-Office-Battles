@@ -1,5 +1,7 @@
 # Box Office Battles
 
+<img width="1506" height="776" alt="Box_Office_Battles" src="https://github.com/user-attachments/assets/d9d52102-d352-406e-bbf6-0d5d8ff93100" />
+
 ## Check It Out!
 - **BeaverHacks Submission**:
   - [Devpost Link](https://devpost.com/software/box-office-battles#updates)
